@@ -1,12 +1,26 @@
+import styled from "styled-components";
+
 export function Card() {
   return (
-    <div>
+    <CardStyle>
       <img
         src="https://rickandmortyapi.com/api/character/avatar/2.jpeg"
-        alt="Default"
+        alt="Morty Smith"
       />
       <h2>Morty Smith</h2>
       <button>Show more</button>
-    </div>
+    </CardStyle>
   );
 }
+
+const CardStyle = styled.div`
+  background-color: grey;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+`;
