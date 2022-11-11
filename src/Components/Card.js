@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
-export function Card() {
+export function Card({ characterData }) {
+  const id = characterData.id;
   return (
     <CardStyle>
       <img
-        src="https://rickandmortyapi.com/api/character/avatar/2.jpeg"
-        alt="Morty Smith"
+        src={`https://rickandmortyapi.com/api/character/avatar/${id}.jpeg`}
+        alt={characterData.name}
       />
-      <h2>Morty Smith</h2>
+      <h2>{characterData.name}</h2>
       <button>Show more</button>
     </CardStyle>
   );

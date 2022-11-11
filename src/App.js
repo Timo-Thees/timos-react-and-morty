@@ -20,7 +20,9 @@ function App() {
     <div>
       <Header />
       <Body>
-        <Card />
+        {characters.map((characters) => {
+          return <Card key={characters.id} characterData={characters} />;
+        })}
       </Body>
       <Navbar />
     </div>
