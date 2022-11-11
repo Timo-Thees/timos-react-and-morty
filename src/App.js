@@ -4,6 +4,7 @@ import { Navbar } from "./Components/Navbar";
 import styled from "styled-components";
 //import useFetch from "./Components/FetchData";
 import { useState, useEffect } from "react";
+import CharacterDetails from "./Components/CharacterDetail";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -22,6 +23,11 @@ function App() {
       <Body>
         {characters.map((characters) => {
           return <Card key={characters.id} characterData={characters} />;
+        })}
+        {characters.map((characters) => {
+          return (
+            <CharacterDetails key={characters.id} characterData={characters} />
+          );
         })}
       </Body>
       <Navbar />
