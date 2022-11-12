@@ -12,7 +12,7 @@ function App() {
     async function fetchData() {
       const response = await fetch("https://rickandmortyapi.com/api/character");
       const data = await response.json();
-      setCharacters(data.results);
+      setCharacters(data.results.map((guy) => ({ ...guy, favorite: false })));
     }
     fetchData();
   }, []);
@@ -22,12 +22,13 @@ function App() {
       <Header />
       <Body>
         {characters.map((characters) => {
-          return <Card key={characters.id} characterData={characters} />;
-        })}
-        {characters.map((characters) => {
-          /*return (
-            <CharacterDetails key={characters.id} characterData={characters} />
-          );*/
+          return (
+            <Card
+              key={characters.id}
+              characterData={characters}
+              setCharacterData={setCharacters}
+            />
+          );
         })}
       </Body>
       <Navbar />
