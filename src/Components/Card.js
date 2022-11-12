@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import CharacterDetails from "./CharacterDetail";
+import { useState } from "react";
 
 export function Card({ characterData }) {
+  const [showDetails, setShowDetails] = useState(false);
   function onShowMore() {
-    return console.log({ characterData });
+    setShowDetails(!showDetails);
   }
   return (
     <CardStyle>
@@ -12,7 +14,7 @@ export function Card({ characterData }) {
         alt={characterData.name}
       />
       <h2>{characterData.name}</h2>
-      <CharacterDetails characterData={characterData} />;
+      {showDetails ? <CharacterDetails characterData={characterData} /> : ""}
       <button
         onClick={() => {
           onShowMore();

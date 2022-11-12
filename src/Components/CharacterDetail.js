@@ -1,7 +1,6 @@
 import { CardStyle } from "./Card";
 
 export default function CharacterDetails({ characterData }) {
-  console.log(characterData);
   return (
     <CardStyle>
       <p>Gender: {characterData.gender}</p>
