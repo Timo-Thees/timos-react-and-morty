@@ -1,15 +1,25 @@
 import styled from "styled-components";
+import CharacterDetails from "./CharacterDetail";
 
 export function Card({ characterData }) {
-  const id = characterData.id;
+  function onShowMore() {
+    return console.log({ characterData });
+  }
   return (
     <CardStyle>
       <img
-        src={`https://rickandmortyapi.com/api/character/avatar/${id}.jpeg`}
+        src={`https://rickandmortyapi.com/api/character/avatar/${characterData.id}.jpeg`}
         alt={characterData.name}
       />
       <h2>{characterData.name}</h2>
-      <button>Show more</button>
+      <CharacterDetails characterData={characterData} />;
+      <button
+        onClick={() => {
+          onShowMore();
+        }}
+      >
+        Show more
+      </button>
     </CardStyle>
   );
 }
@@ -25,3 +35,5 @@ const CardStyle = styled.div`
   justify-content: center;
   text-align: center;
 `;
+
+export { CardStyle };
